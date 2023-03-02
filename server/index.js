@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: false }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: false }));
 
-const CONNECTION_URL = "mongodb+srv://stgupta9935:Pm@310*#ag0t;@cluster0.skeyicj.mongodb.net/?retryWrites=true&w=majority";
+const CONNECTION_URL = "mongodb+srv://shashwatgupta:admin@cluster0.n7xnkik.mongodb.net/?retryWrites=true&w=majority";
 
 const PORT = process.env.PORT || 5000;
 
