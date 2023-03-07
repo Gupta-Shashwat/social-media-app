@@ -3,10 +3,15 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
+import postRoutes from './routes/postsRouter.js';
+
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: false }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: false }));
+app.use(cors());
+
+app.use('/posts', postRoutes);
 
 const CONNECTION_URL = "mongodb+srv://shashwatgupta:admin@cluster0.n7xnkik.mongodb.net/?retryWrites=true&w=majority";
 
