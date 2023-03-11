@@ -30,8 +30,7 @@ const Post = ({ post }) => {
                 <CardActions className={classes.cardActions} >
                     <Button size='small' color='primary' onClick={() => { }}>
                         <ThumbUpAltIcon fontSize='small' />
-                        Like
-                        {post.likeCount}
+                        Like {post.likeCount}
                     </Button>
                     <Button size='small' color='primary' onClick={() => { }}>
                         <DeleteIcon fontSize='small' />
