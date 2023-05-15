@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
+import { signin, signup } from '../../actions/auth.js';
 import Icon from './Icon.js';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles.js';
@@ -13,15 +14,26 @@ import Input from './Input.js';
 
 const Auth = () => {
     const dispatch = useDispatch();
+    const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+
+    const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const classes = useStyles();
     const [isSignup, setIsSignup] = useState(false);
     const history = useHistory();
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        if (isSignup) {
+            dispatch(signup(formData, history));
+        } else {
+            dispatch(signin(formData, history));
+        }
     }
-    const handleChange = () => {
+    const handleChange = (e) => {
+        e.preventDefault();
 
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     }
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
