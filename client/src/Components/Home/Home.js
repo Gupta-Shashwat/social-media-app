@@ -65,7 +65,7 @@ const Home = () => {
                                 name='search'
                                 variant='outlined'
                                 label='Search Memories'
-                                onKeyPress={handleKeyPress}
+                                onKeyDown={handleKeyPress}
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />
